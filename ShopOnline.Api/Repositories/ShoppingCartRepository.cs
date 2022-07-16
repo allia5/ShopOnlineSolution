@@ -63,9 +63,8 @@ namespace ShopOnline.Api.Repositories
 
         public async Task<CartItem> GetItem(int id)
         {
-            return await (from cart in this.shopOnlineDbContext.Carts
-                          join cartItem in this.shopOnlineDbContext.CartItems
-                          on cart.Id equals cartItem.CartId
+            return await (from  cartItem in this.shopOnlineDbContext.CartItems
+                          
                           where cartItem.Id == id
                           select new CartItem
                           {
